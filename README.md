@@ -51,9 +51,11 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 
 | Subject \(version\) | Twig Markup | Output |
 | ------------------- | ----------- | ------ |
-| Capitalize | {{ 'my woman loves lollis' | capitalize }} | My Woman Loves Lollis |
-| Convert Encoding \(1.4+\)| {{ data\|convert_encoding\('UTF-8', 'iso-2022-jp' }} | Convert 2nd parameter to 1st parameter standard |
-
+| Capitalize | {{ 'my woman loves lollis' \| capitalize }} | My Woman Loves Lollis |
+| Convert Encoding \(1.4+\)| {{ data\|convert_encoding\('UTF-8', 'iso-2022-jp') }} | Convert 2nd parameter to 1st parameter standard. |
+| Date Formatting | {{ "now"\|date("Ymd") }} | Pipe a string value, or variable through what they call a filter. |
+| Date " | {{ post.published_at\|date("Ymd", "Europe/Paris") }} | Pipe a variable through what they call a filter and force it into a non-standard timezone as the Optional Second Parameter. |
+| Date " | {{ "now"\|date("Ymd") }} | Example of the `\\` escape character in the date function to render embedded text in the output. |
 
 ###  GitHub Related Tools
 
