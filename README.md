@@ -52,7 +52,7 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 | Subject \(version\) | Twig Markup | Output |
 | ------------------- | ----------- | ------ |
 | Capitalize | {{ 'my woman loves lollis' | capitalize }} | My Woman Loves Lollis |
-| Convert Encoding \(1.4+\)| {{ data|convert_encoding\('UTF-8', 'iso-2022-jp' }} | Convert 2nd parameter to 1st parameter standard |
+| Convert Encoding \(1.4+\)| {{ data\|convert_encoding\('UTF-8', 'iso-2022-jp' }} | Convert 2nd parameter to 1st parameter standard |
 
 
 ###  GitHub Related Tools
