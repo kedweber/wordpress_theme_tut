@@ -33,14 +33,16 @@ or [Timber from the Repository](https://github.com/jarednova/timber) for the ble
 ## Theme Creation Tutorial
 
 We will begin with a simple approach, for the sake of knowing the basics, and then we will move towards revamping the 
-theme into using TWIG templates:
+theme into using TWIG templates. For the sake of keeping theme names unique, we will begin with the lunar month of 
+August and September with the prefix of "Web"; WebElul's [template code is here](wp-content/themes/webelul) and 
+[static renderings](http://kedweber.github.io/wordpress_theme_tut) are viewable from the project's main page.
 
 ### 1) File Creation
 
-We will need some [sample code](http://filesilo.co.uk/webdesigner) in order to work through this.
+<We will need some [sample code](http://filesilo.co.uk/webdesigner) in order to work through this.>
 
 Let's create the `header.php`, `footer.php` and `style.css` files. As you probably assume, the header.php will contain all 
- your static HTML regarding the contents of the <head> and </head> tags, while our footer.php will contain all static HTML 
+ your static HTML regarding the contents of the `head` and `/head` tags, while our footer.php will contain all static HTML 
  related to the lower content of your website. The style.css is also what you would expect, it contains all your CSS and is 
  most likely referenced by a link tag within your header.php.
 
@@ -49,6 +51,26 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 
 ### Twig Template Markup In a Nutshell \(Cheatsheet\)
 
+#### Installation of a RAW Twig Configuration \(not within the [WordPress](http://wordpress.org)\) framework
+
+From the command prompt run the following command, for the *runtime environment*:
+
+```bash
+composer require twig/twig:~1.0
+```
+
+or if you've not created the alias then run the following; 
+
+```bash
+php /path/to/your/composer.php require twig/twig:~1.0
+```
+
+That is what you need for a rendering engine; however if you wish to run a development version then you will need to 
+consider cloning the Twig repository from their address on [GitHub](http )
+
+
+For a solid and through listing of [Twig syntax](http://twig.sensiolabs.org/documentation), visit [SensioLabs' documentation](http://twig.sensiolabs.org/documentation) website. 
+
 | Subject \(version\) | Twig Markup | Output |
 | ------------------- | ----------- | ------ |
 | Capitalize | {{ 'my woman loves lollis' \| capitalize }} | My Woman Loves Lollis |
@@ -56,6 +78,9 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 | Date Formatting | {{ "now"\|date("Ymd") }} | Pipe a string value, or variable through what they call a filter. |
 | Date " | {{ post.published_at\|date("Ymd", "Europe/Paris") }} | Pipe a variable through what they call a filter and force it into a non-standard timezone as the Optional Second Parameter. |
 | Date " | {{ "now"\|date("Ymd") }} | Example of the `\\` escape character in the date function to render embedded text in the output. |
+| Date Modification | {{ marriage.when_you_trusted\|date_modify("+8 years")\|date('YMd') }} | Add arbitrary time spans to your date formation. |
+
+
 
 ###  GitHub Related Tools
 
