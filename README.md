@@ -39,6 +39,30 @@ August and September with the prefix of "Web"; WebElul's [template code is here]
 
 ### 1) File Creation
 
+A WordPress \(WP\) theme, in its barebones state, minimally needs the following files;
+
+  * style.css – theme declaration and CSS
+  * index.php – main fallback template
+  * header.php – the site header
+  * footer.php – the site footer
+  * sidebar.php – the side column
+  * single.php – for single posts
+  * page.php – for single pages
+  * archive.php – for various types of archives
+  * content.php – code for outputting content
+  * content-single.php – code for outputting content on single posts
+  * content-page.php – code that can be used for outputting content on pages
+  * nav-bottom.php – code for including navigational elements in your theme
+  * comments.php – the comment code
+  * functions.php – code that can be used for registering features and functions
+  * screenshot.png – for admin purposes 
+
+and these should be placed in a subdirectory in your WP site's webroot with the following path's nomenclature:
+
+```
+wp-content/themes/nameOfYourTheme
+```
+
 <We will need some [sample code](http://filesilo.co.uk/webdesigner) in order to work through this.>
 
 Let's create the `header.php`, `footer.php` and `style.css` files. As you probably assume, the header.php will contain all 
