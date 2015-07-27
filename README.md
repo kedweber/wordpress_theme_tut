@@ -1,6 +1,21 @@
 # Free Word Press Theme & Terse Tutorial (wordpress_theme_tut)
 
+Table of Contents
+* [Introduction] (https://github.com/kedweber/wordpress_theme_tut#introduction)
+    * [REQUIREMENTS] (https://github.com/kedweber/wordpress_theme_tut#requirements)
+    * [Theme Creation Tutorial ~ Lite] (https://github.com/kedweber/wordpress_theme_tut#theme-creation-tutorial--lite)
+        * [Generalities of WordPress Themes] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-themes)
+        * [Child Theme Creation Specifics] (https://github.com/kedweber/wordpress_theme_tut#child-theme-creation-specifics)
+            * The style.css file's role in child themes] ()
+            * The functions.php file's role in child themes
+        *  [A Theme's File Structure] (https://github.com/kedweber/wordpress_theme_tut#a-themes-file-structure)
+        *  [Generalities of WordPress Scripting / Coding vs. Template Tags] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-scripting--coding-vs-template-tags)
+        *  [Generalities of WordPress Theme Frameworks & Starter Themes] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-theme-frameworks--starter-themes)
+    *  Resources
+        *  Twig Template Markup In a Nutshell
+
 ## Introduction
+
 [Website for this and other Repositories](http://kedweber.github.io)
 
 Ah... yeah, well, given that the midnight oil has officially expended the wick in the bottle 
@@ -54,7 +69,7 @@ subdirectory in your WP site's webroot with the following path's nomenclature:
 
 Here is the link to the [official and more detailed documentation on creating Child Themes](http://codex.wordpress.org/Child_Themes).
 
-##### style.css
+##### The style.css file's role in child themes
 
 The `style.css` file in the child theme will dictate which theme is the parent theme, which keeps us from having to fork 
 a parental theme without loosing any alterations. The following is an example of the header used within the style.css file to extend 
@@ -79,17 +94,16 @@ the parent theme:
 
 It is not a de facto standard, but it is advised to name your child themes with the suffix of `-child`.
 
-##### functions.php
+##### The functions.php file's role in child themes
 
 In order to load the parent's style sheet, we have to add something like the following function to the functions.php's 
 file. This will enqueue the parent's main style sheet.
 
 ```php
-    add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-    function theme_enqueue_styles() {
-        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    
-    }
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
 ```
 
 @TODO rewrite this function to read out of the parent theme's directory, when existing, and loop through any additional 
