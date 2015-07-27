@@ -34,34 +34,90 @@ or [Timber from the Repository](https://github.com/jarednova/timber) for the ble
 
 We will begin with a simple approach, for the sake of knowing the basics, and then we will move towards revamping the 
 theme into using TWIG templates. For the sake of keeping theme names unique, we will begin with the lunar month of 
-August and September with the prefix of "Web"; WebElul's [template code is here](wp-content/themes/webelul) and 
+August and September with the prefix of "Web"; WebElul's [template code is here]((http://github.com/kedweber/wordpress_theme_tut/wp-content/themes/webelul) and 
 [static renderings](http://kedweber.github.io/wordpress_theme_tut) are viewable from the project's main page.
 
-### 1) File Creation
+### Generalities of WordPress Themes
 
-A WordPress \(WP\) theme, in its barebones state, minimally needs the following files;
+We have themes and [child themes](http://codex.wordpress.org/Child_Themes). A child theme borrows attributes, functions, styles and basically everything from its 
+parent theme. Any theme can be a parent theme. Everything which one codes into a child theme will override and take 
+precedence over the parent theme's attributes. 
 
-  * style.css – theme declaration and CSS
-  * index.php – main fallback template
-  * header.php – the site header
+Both parental and child theme files are located under the same directory structure. Both should be placed in a 
+subdirectory in your WP site's webroot with the following path's nomenclature:
+ 
+```
+./wp-content/themes/nameOfYourTheme
+```
+
+#### Child Theme Creation Specifics
+
+Here is the link to the [official and more detailed documentation on creating Child Themes][child themes](http://codex.wordpress.org/Child_Themes).
+
+##### style.css
+
+The `style.css` file in the child theme will dictate which theme is the parent theme, which keeps us from having to fork 
+a parental theme without loosing any alterations. The following is an example of the header used within the style.css file to extend 
+the parent. This would extend the *Template:* specified here as *twentyfifteen* refers to the directory containing 
+the parent theme: 
+
+```php
+/*
+ Theme Name:   Twenty Fifteen Child
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  Twenty Fifteen Child Theme
+ Author:       John Doe
+ Author URI:   http://example.com
+ Template:     twentyfifteen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fifteen-child
+*/
+```
+
+It is not a de facto standard, but it is advised to name your child themes with the suffix of `-child`.
+
+##### functions.php
+
+In order to load the parent's style sheet, we have to add something like the following function to the functions.php's 
+file. This will enqueue the parent's main style sheet.
+
+```php
+    add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+    function theme_enqueue_styles() {
+        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    
+    }
+```
+
+@TODO rewrite this function to read out of the parent theme's directory, when existing, and loop through any additional 
+style sheets other than `style.css`.
+
+### File Creation
+
+A WordPress \(WP\) theme, in its barebones state, could include the following files (note the indented files are not required);
+
+  * archive.php – for various types of archives
+      * comments.php – the comment code
+      * content.php – code for outputting content
+      * content-single.php – code for outputting content on single posts
+      * content-page.php – code that can be used for outputting content on pages
   * footer.php – the site footer
+  * functions.php – code that can be used for registering features and functions
+  * header.php – the site header
+  * index.php – main fallback template
+      * nav-bottom.php – code for including navigational elements in your theme
+  * page.php – for single pages
+  * screenshot.png – for admin purposes
   * sidebar.php – the side column
   * single.php – for single posts
-  * page.php – for single pages
-  * archive.php – for various types of archives
-  * content.php – code for outputting content
-  * content-single.php – code for outputting content on single posts
-  * content-page.php – code that can be used for outputting content on pages
-  * nav-bottom.php – code for including navigational elements in your theme
-  * comments.php – the comment code
-  * functions.php – code that can be used for registering features and functions
-  * screenshot.png – for admin purposes 
+  * style.css – theme declaration and CSS
 
-and these should be placed in a subdirectory in your WP site's webroot with the following path's nomenclature:
 
-```
-wp-content/themes/nameOfYourTheme
-```
+Place holder files, if you wish to at least have all the files we wish to elaborate upon and within, the copy those out of the 
+[barebones directory](http://github.com/kedweber/wordpress_theme_tut/wp-content/themes/barebones).
 
 <We will need some [sample code](http://filesilo.co.uk/webdesigner) in order to work through this.>
 
@@ -93,7 +149,7 @@ That is what you need for a rendering engine; however if you wish to run a devel
 consider cloning the Twig repository from their address on [GitHub](http )
 
 
-For a solid and through listing of [Twig syntax](http://twig.sensiolabs.org/documentation), visit [SensioLabs' documentation](http://twig.sensiolabs.org/documentation) website. 
+For a solid and thorough listing of [Twig syntax](http://twig.sensiolabs.org/documentation), visit [SensioLabs' documentation](http://twig.sensiolabs.org/documentation) website. 
 
 | Subject \(version\) | Twig Markup | Output |
 | ------------------- | ----------- | ------ |
@@ -105,6 +161,8 @@ For a solid and through listing of [Twig syntax](http://twig.sensiolabs.org/docu
 | Date Modification | {{ marriage.when_you_trusted\|date_modify("+8 years")\|date('YMd') }} | Add arbitrary time spans to your date formation. |
 
 
+
+# And Now for Something Completely Different
 
 ###  GitHub Related Tools
 
