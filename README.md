@@ -52,7 +52,7 @@ subdirectory in your WP site's webroot with the following path's nomenclature:
 
 #### Child Theme Creation Specifics
 
-Here is the link to the [official and more detailed documentation on creating Child Themes][child themes](http://codex.wordpress.org/Child_Themes).
+Here is the link to the [official and more detailed documentation on creating Child Themes](http://codex.wordpress.org/Child_Themes).
 
 ##### style.css
 
@@ -129,7 +129,12 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 ### Generalities of WordPress Scripting / Coding vs. Template Tags
 
 WordPress is based on the popular multi-platform [PHP Engine](http://php.net); refer to their documentation. This document assumes you 
-already have an understanding of PHP.
+already have an understanding of PHP. We will step briefly through some of the most important concepts, but if PHP is 
+not your forté you'll be happy wiht the section about 
+[Theme Frameworks & Starter Themes](https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-theme-frameworks--starter-themes) 
+and that level of abstraction and simplification is what TWIG is all about.
+
+Meanwhile, let us differentiate between Code and Tags. Code is just that, raw PHP code. 
  
 ### Generalities of WordPress Theme Frameworks & Starter Themes
 
