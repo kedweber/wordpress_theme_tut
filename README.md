@@ -30,11 +30,11 @@ coffee along with the following:
 * [Timber's TWIG Plug-In zipped](http://wordpress.org/plugins/timber-library/) 
 or [Timber from the Repository](https://github.com/jarednova/timber) for the bleeding edge
 
-## Theme Creation Tutorial
+## Theme Creation Tutorial ~ Lite
 
 We will begin with a simple approach, for the sake of knowing the basics, and then we will move towards revamping the 
 theme into using TWIG templates. For the sake of keeping theme names unique, we will begin with the lunar month of 
-August and September with the prefix of "Web"; WebElul's [template code is here]((http://github.com/kedweber/wordpress_theme_tut/wp-content/themes/webelul) and 
+August and September with the prefix of "Web"; WebElul's [template code is here](http://github.com/kedweber/wordpress_theme_tut/wp-content/themes/webelul) and 
 [static renderings](http://kedweber.github.io/wordpress_theme_tut) are viewable from the project's main page.
 
 ### Generalities of WordPress Themes
@@ -95,7 +95,7 @@ file. This will enqueue the parent's main style sheet.
 @TODO rewrite this function to read out of the parent theme's directory, when existing, and loop through any additional 
 style sheets other than `style.css`.
 
-### File Creation
+### A Theme's File Structure
 
 A WordPress \(WP\) theme, in its barebones state, could include the following files (note the indented files are not required);
 
@@ -125,6 +125,13 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
  your static HTML regarding the contents of the `head` and `/head` tags, while our footer.php will contain all static HTML 
  related to the lower content of your website. The style.css is also what you would expect, it contains all your CSS and is 
  most likely referenced by a link tag within your header.php.
+
+### Generalities of WordPress Scripting / Coding vs. Template Tags
+
+WordPress is based on the popular multi-platform [PHP Engine](http://php.net); refer to their documentation. This document assumes you 
+already have an understanding of PHP.
+ 
+### Generalities of WordPress Theme Frameworks & Starter Themes
 
 
 ## Resources
