@@ -6,13 +6,15 @@ Table of Contents
     * [Theme Creation Tutorial ~ Lite] (https://github.com/kedweber/wordpress_theme_tut#theme-creation-tutorial--lite)
         * [Generalities of WordPress Themes] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-themes)
         * [Child Theme Creation Specifics] (https://github.com/kedweber/wordpress_theme_tut#child-theme-creation-specifics)
-            * The style.css file's role in child themes] ()
-            * The functions.php file's role in child themes
-        *  [A Theme's File Structure] (https://github.com/kedweber/wordpress_theme_tut#a-themes-file-structure)
-        *  [Generalities of WordPress Scripting / Coding vs. Template Tags] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-scripting--coding-vs-template-tags)
-        *  [Generalities of WordPress Theme Frameworks & Starter Themes] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-theme-frameworks--starter-themes)
-    *  Resources
-        *  Twig Template Markup In a Nutshell
+            * [The style.css file's role in child themes] (https://github.com/kedweber/wordpress_theme_tut#the-stylecss-files-role-in-child-themes)
+            * [The functions.php file's role in child themes] (https://github.com/kedweber/wordpress_theme_tut#the-functionsphp-files-role-in-child-themes)
+        * [A Theme's File Structure] (https://github.com/kedweber/wordpress_theme_tut#a-themes-file-structure)
+        * [Generalities of WordPress Scripting / Coding vs. Template Tags] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-scripting--coding-vs-template-tags)
+        * [Generalities of WordPress Theme Frameworks & Starter Themes] (https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-theme-frameworks--starter-themes)
+    * [Resources] (https://github.com/kedweber/wordpress_theme_tut#resources)
+        * [Twig Template Markup In a Nutshell] (https://github.com/kedweber/wordpress_theme_tut#twig-template-markup-in-a-nutshell-cheatsheet)
+        * [Installation of a RAW Twig Configuration outside of WordPress] (https://github.com/kedweber/wordpress_theme_tut#installation-of-a-raw-twig-configuration-not-within-the-wordpress-framework)
+        
 
 ## Introduction
 
@@ -144,11 +146,36 @@ Let's create the `header.php`, `footer.php` and `style.css` files. As you probab
 
 WordPress is based on the popular multi-platform [PHP Engine](http://php.net); refer to their documentation. This document assumes you 
 already have an understanding of PHP. We will step briefly through some of the most important concepts, but if PHP is 
-not your forté you'll be happy wiht the section about 
+not your forté, you plan never to use PHP or you're already very fluent with WordPress coding and template tags, then 
+you'll be happy to continue to the following section on 
 [Theme Frameworks & Starter Themes](https://github.com/kedweber/wordpress_theme_tut#generalities-of-wordpress-theme-frameworks--starter-themes) 
 and that level of abstraction and simplification is what TWIG is all about.
 
-Meanwhile, let us differentiate between Code and Tags. Code is just that, raw PHP code. 
+Meanwhile, let us differentiate between Code and Template Tags. Code is just that, raw PHP code, while in WordPress jargon, tags are 
+basically wrapper functions surrounding a collection of PHP Code. It is advised that you use the template tags where ever 
+possible to avoid cross platform bugs and other issues which you will have discover as you recode the wheel.
+
+Two simple examples of template tags are `blog_info()` and `the_tags()`. A [full listing of template tags] (http://codex.wordpress.org/Template_Tags) 
+is available on the official WordPress site.
+
+The following `blog_info()` when passed a specific fieldname, such as 'title' as a string parameter, then 
+the tag will output the title into the HTML template.
+
+```php
+<?php blog_info('title') ?>
+```
+
+The `the_tags()` "template tag" \(or function\) has three default parameters; hence unnecessary unless you wish to customize 
+the output other than as expressed in the code example below. This will return the prefix of 'Tag: ' followed by a 
+comma delimited list of tags associated with the post and finally as shown here the suffix is an empty string denoted by 
+the third parameter of ''.
+
+```php
+<?php the_tags(‘Tags: ‘, ‘, ‘, ‘’ ) ?>
+```
+
+
+@TODO Link to Codex.WordPress.org's template tags and functions.
  
 ### Generalities of WordPress Theme Frameworks & Starter Themes
 
