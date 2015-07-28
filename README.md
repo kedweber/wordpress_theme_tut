@@ -74,23 +74,24 @@ Here is the link to the [official and more detailed documentation on creating Ch
 ##### The style.css file's role in child themes
 
 The `style.css` file in the child theme will dictate which theme is the parent theme, which keeps us from having to fork 
-a parental theme without loosing any alterations. The following is an example of the header used within the style.css file to extend 
+a parental theme without loosing any alterations. The following is an just an example \(as barebones is not intended to 
+extend the standared WP's twentyfifteen\) of the header used within the style.css file to extend 
 the parent. This would extend the *Template:* specified here as *twentyfifteen* refers to the directory containing 
 the parent theme: 
 
 ```php
 /*
- Theme Name:   Twenty Fifteen Child
- Theme URI:    http://example.com/twenty-fifteen-child/
- Description:  Twenty Fifteen Child Theme
- Author:       John Doe
- Author URI:   http://example.com
+ Theme Name:   WEBer Barebones
+ Theme URI:    https://github.com/kedweber/wordpress_theme_tut
+ Description:  WEBer Barebones WordPress Theme
+ Author:       Ked Weber
+ Author URI:   http://kedweber.github.io
  Template:     twentyfifteen
- Version:      1.0.0
+ Version:      0.1.0
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
- Text Domain:  twenty-fifteen-child
+ Text Domain:  barebones
 */
 ```
 

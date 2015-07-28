@@ -1,0 +1,19 @@
+/*
+ Theme Name:   WEBer Barebones
+ Theme URI:    https://github.com/kedweber/wordpress_theme_tut
+ Description:  WEBer Barebones WordPress Theme
+ Author:       Ked Weber
+ Author URI:   http://kedweber.github.io
+ Template:     twentyfifteen
+ Version:      0.1.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  barebones
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
